@@ -29,7 +29,7 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/employees?page=${currentPage}&pageSize=${pageSize}`);
+      const res = await fetch(`https://employee-dbms.onrender.com/employees?page=${currentPage}&pageSize=${pageSize}`);
       const data = await res.json();
       setEmployees(data);
     } catch (error) {
@@ -62,7 +62,7 @@ const Home = () => {
     try {
       let res;
       if (selectedEmployeeId) {
-        res = await fetch(`http://localhost:5000/employees/${selectedEmployeeId}`, {
+        res = await fetch(`https://employee-dbms.onrender.com/employees/${selectedEmployeeId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const Home = () => {
           body: JSON.stringify(formData),
         });
       } else {
-        res = await fetch('http://localhost:5000/employees', {
+        res = await fetch('https://employee-dbms.onrender.com/employees', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ const Home = () => {
 
   const handleUpdate = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/employees/${id}`);
+      const res = await fetch(`https://employee-dbms.onrender.com/employees/${id}`);
       const data = await res.json();
       setFormData(data);
       setSelectedEmployeeId(id);
@@ -113,7 +113,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/employees/${id}`, {
+      const res = await fetch(`https://employee-dbms.onrender.com/employees/${id}`, {
         method: 'DELETE',
       });
       if (res.ok) {

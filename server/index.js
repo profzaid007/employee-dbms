@@ -3,6 +3,7 @@ const cors = require('cors');
 const pool = require("./db");
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -111,6 +112,6 @@ app.get('/', (req, res) => {
     res.send('The Fugging Server Runs!');
 });
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     console.log("Server Served @ port:5000");
 });
